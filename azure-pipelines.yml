@@ -16,6 +16,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    sudo apt update && sudo apt install python2 -y
     cd frontend
     npm install
     npm run build
