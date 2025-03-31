@@ -12,12 +12,17 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '20.x'
-  displayName: 'Install Node.js'
+    versionSpec: '14.x'
+  displayName: 'Install Node.js 14.x'
 
 - script: |
-    sudo apt update && sudo apt install python2 -y
+    sudo apt update
+    sudo apt install -y python2
+    sudo ln -sf /usr/bin/python2 /usr/bin/python
+  displayName: 'Install Python 2'
+
+- script: |
     cd frontend
-    npm install
+    npm ci
     npm run build
   displayName: 'npm install and build'
