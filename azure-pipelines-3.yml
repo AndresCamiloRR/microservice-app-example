@@ -15,7 +15,6 @@ variables:
 
 steps:
 - script: |
-    cd auth-api
     mkdir -p '$(GOBIN)'
     echo '##vso[task.prependpath]$(GOBIN)'
   displayName: 'Set up the Go workspace'
@@ -25,6 +24,7 @@ steps:
   displayName: 'List files in the working directory'
 
 - script: |
+    cd auth-api
     go version
     if [ ! -f go.mod ]; then
         go mod init example.com/myproject # replace with your module path
