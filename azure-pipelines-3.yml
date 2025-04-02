@@ -15,6 +15,7 @@ variables:
 
 steps:
 - script: |
+    cd auth-api
     mkdir -p '$(GOBIN)'
     echo '##vso[task.prependpath]$(GOBIN)'
   displayName: 'Set up the Go workspace'
